@@ -1,0 +1,9 @@
+6/1/2022 :
+- Installed Docker for windows.
+- Build and run app
+	mkdir composeDraftKings
+	cd composeDraftKings
+	verified app up and running on http://localhost:5000	
+- Created Git for the project.
+	pushed Progress.txt
+- Installed Specflow Visual Studio 2022 extension.

@@ -1,0 +1,32 @@
+version: "3.8"
+
+networks:
+  bridge_network:
+      driver: bridge
+      driver_opts:
+        com.docker.network.enable_ipv6: "false"
+
+services:
+    book-lib:
+        image: "mir0hristeff/interview-task:latest"
+        container_name: book-library
+        environment:
+            ASPNETCORE_ENVIRONMENT: "Development"
+        ports:
+            - "5001:5001"
+            - "5000:5000"
+        depends_on:
+            - "db"
+        networks:
+            - bridge_network
+
+    db:
+        image: "mcr.microsoft.com/mssql/server:2019-latest"
+        container_name: mssql
+        environment:
+            SA_PASSWORD: "yourStrong(!)Password"
+            ACCEPT_EULA: "Y"
+        ports:
+            - "1433:1433"
+        networks:
+            - bridge_network
