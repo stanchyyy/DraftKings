@@ -1,0 +1,5 @@
+C:\Users\Stani\Documents\DraftKings\Test_Book-lib\obj\Debug\net6.0\Test_Book-lib.csproj.AssemblyReference.cache
+C:\Users\Stani\Documents\DraftKings\Test_Book-lib\obj\Debug\net6.0\Test_Book-lib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Stani\Documents\DraftKings\Test_Book-lib\obj\Debug\net6.0\Test_Book-lib.AssemblyInfoInputs.cache
+C:\Users\Stani\Documents\DraftKings\Test_Book-lib\obj\Debug\net6.0\Test_Book-lib.AssemblyInfo.cs
+C:\Users\Stani\Documents\DraftKings\Test_Book-lib\obj\Debug\net6.0\Test_Book-lib.csproj.CoreCompileInputs.cache

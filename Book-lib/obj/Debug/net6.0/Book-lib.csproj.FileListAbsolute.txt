@@ -1,0 +1,12 @@
+C:\Users\Stani\Documents\DraftKings\Book-lib\bin\Debug\net6.0\Book-lib.deps.json
+C:\Users\Stani\Documents\DraftKings\Book-lib\bin\Debug\net6.0\Book-lib.dll
+C:\Users\Stani\Documents\DraftKings\Book-lib\bin\Debug\net6.0\Book-lib.pdb
+C:\Users\Stani\Documents\DraftKings\Book-lib\obj\Debug\net6.0\Book-lib.csproj.AssemblyReference.cache
+C:\Users\Stani\Documents\DraftKings\Book-lib\obj\Debug\net6.0\Book-lib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Stani\Documents\DraftKings\Book-lib\obj\Debug\net6.0\Book-lib.AssemblyInfoInputs.cache
+C:\Users\Stani\Documents\DraftKings\Book-lib\obj\Debug\net6.0\Book-lib.AssemblyInfo.cs
+C:\Users\Stani\Documents\DraftKings\Book-lib\obj\Debug\net6.0\Book-lib.csproj.CoreCompileInputs.cache
+C:\Users\Stani\Documents\DraftKings\Book-lib\obj\Debug\net6.0\Book-lib.dll
+C:\Users\Stani\Documents\DraftKings\Book-lib\obj\Debug\net6.0\refint\Book-lib.dll
+C:\Users\Stani\Documents\DraftKings\Book-lib\obj\Debug\net6.0\Book-lib.pdb
+C:\Users\Stani\Documents\DraftKings\Book-lib\obj\Debug\net6.0\ref\Book-lib.dll
