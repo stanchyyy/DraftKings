@@ -1,0 +1,32 @@
+[
+   {
+      "title":"Harry Potter - Philosopher's Stone",
+      "author":{
+         "firstName":"Joanne",
+         "lastName":"Rowling",
+         "dateOfBirth":"1965-06-31T00:00:00.000Z"
+      },
+      "publisher":"Bloomsbury Publishing",
+      "releaseDate":"2007-07-21T00:00:00.000Z"
+   },
+  {
+    "title": "Test Driven Development: By Example",
+    "author": {
+      "firstName": "Kent",
+      "lastName": "Beck",
+      "dateOfBirth": "1961-01-01T00:00:00.000Z"
+    },
+    "publisher": "Addison-Wesley Professional",
+    "releaseDate": "2002-10-01T00:00:00.000Z"
+  },
+  {
+    "title": "CSharp-Principles-Book-Nakov-v2018",
+    "author": {
+      "firstName": "Svetlin",
+      "lastName": "Nakov",
+      "dateOfBirth": "1980-06-14T00:00:00.000Z"
+    },
+    "publisher": "unknown",
+    "releaseDate": "2018-05-01T00:00:00.000Z"
+  }
+]

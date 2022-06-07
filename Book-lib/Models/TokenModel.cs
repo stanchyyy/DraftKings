@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Book_lib.Models
 {
-    public class Token
+    public class TokenModel
     {
         public string token { get; set; }
         public string expiresAt { get; set; }
 
-        public Token()
+        public TokenModel()
         {
 
         }

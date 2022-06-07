@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Book_lib.Models
 {
-    public class User
+    public class UserModel
     {
 
         private string password;
@@ -16,14 +16,14 @@ namespace Book_lib.Models
         [JsonPropertyName("emailAddress")]
         public string EmailAddress { get; set; }
 
-        public User(string userName, string password, string emailAddress)
+        public UserModel(string userName, string password, string emailAddress)
         {
             UserName = userName;
             Password = password;
             EmailAddress = emailAddress;
         }
 
-        public override string ToString() => JsonSerializer.Serialize<User>(this);
+        public override string ToString() => JsonSerializer.Serialize<UserModel>(this);
     }
 
 }
