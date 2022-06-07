@@ -4,7 +4,7 @@
       "author":{
          "firstName":"Joanne",
          "lastName":"Rowling",
-         "dateOfBirth":"1965-06-31T00:00:00.000Z"
+         "dateOfBirth":"2022-06-07T14:15:22.630Z"
       },
       "publisher":"Bloomsbury Publishing",
       "releaseDate":"2007-07-21T00:00:00.000Z"
@@ -14,7 +14,7 @@
     "author": {
       "firstName": "Kent",
       "lastName": "Beck",
-      "dateOfBirth": "1961-01-01T00:00:00.000Z"
+      "dateOfBirth": "2022-06-07T14:15:22.630Z"
     },
     "publisher": "Addison-Wesley Professional",
     "releaseDate": "2002-10-01T00:00:00.000Z"
@@ -24,7 +24,7 @@
     "author": {
       "firstName": "Svetlin",
       "lastName": "Nakov",
-      "dateOfBirth": "1980-06-14T00:00:00.000Z"
+      "dateOfBirth": "2022-06-07T14:15:22.630Z"
     },
     "publisher": "unknown",
     "releaseDate": "2018-05-01T00:00:00.000Z"

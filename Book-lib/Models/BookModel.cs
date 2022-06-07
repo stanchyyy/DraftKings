@@ -7,6 +7,8 @@ namespace Book_lib.Models
     {
         [JsonPropertyName("title")]
         public string Title { get; set; }
+
+        [JsonPropertyName("author")]
         public BookAuthorModel Author { get; set; }
 
         [JsonPropertyName("publisher")]

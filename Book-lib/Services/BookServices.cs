@@ -15,17 +15,19 @@ namespace Book_lib.Services
         {
 
         }
+        private static string JsonFileName
+        {
+            get{ return Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..", "Templates", "newBookTemplate.json")); }
+        }
 
-        public async Task<List<BookModel>> CreateBooksFromTemplate()
+        public static List<BookModel> CreateBooksFromTemplate()
         {
             List<BookModel> TemplateBookModel = new();
-            using (StringReader reader = new StringReader("./Templates/newBookTemplate.json"))
+            using (var reader = File.OpenText(JsonFileName))
             {
-                string readText = await reader.ReadToEndAsync();
-                TemplateBookModel = JsonSerializer.Deserialize<List<BookModel>>(readText);
+                string readText = reader.ReadToEnd();
+                return TemplateBookModel = JsonSerializer.Deserialize<List<BookModel>>(readText);
             }
-
-            return TemplateBookModel;
         }
         
     }

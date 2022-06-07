@@ -31,7 +31,9 @@ namespace Test_Book_lib.StepDefinitions
             ClientApi.BaseAddress = new Uri("http://localhost:5000/");
             UserServices userServices = new UserServices(ClientApi);
             ApiToken = await userServices.StartNewUserTestsAsync(user);
-            BookModel Book = new();
+            List<BookModel> BookList = new();
+            BookList =  BookServices.CreateBooksFromTemplate();
+            Console.WriteLine();
         }
 
         [When(@"\[I login]")]
