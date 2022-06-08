@@ -1,6 +1,7 @@
 ﻿using Book_lib.Models;
 using Book_lib.Services;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace Test_Book_lib.Hooks
 {
@@ -14,23 +15,38 @@ namespace Test_Book_lib.Hooks
             _scenarioContext = scenarioContext;
         }
 
+
         [BeforeScenario("@TodoApp")]
 
-
-
-        public void BeforeScenarioWithTag()
+        [Given(@"\[HTTP client is initialized]")]
+        public void GivenHTTPClientIsInitialized()
         {
-            //will move this initialization to dependecy injection once working with hardcoded values.Will replace environmental variables with table.
-            string UserName = Environment.GetEnvironmentVariable("bookLibUsername", EnvironmentVariableTarget.User);
-            string Password = Environment.GetEnvironmentVariable("bookLibPassword", EnvironmentVariableTarget.User);
-            string EmailAddress = Environment.GetEnvironmentVariable("bookLibEmailAddress", EnvironmentVariableTarget.User);
-            UserModel User = new(UserName, Password, EmailAddress);
-
             HttpClient HttpClient = new HttpClient();
             HttpClient.BaseAddress = new Uri("http://localhost:5000/");
-            TokenModel BearerToken = new UserServices(HttpClient).StartNewUserTestsAsync(User).Result;
-            HttpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", BearerToken.token);
+            _scenarioContext.Set<HttpClient>(HttpClient);
         }
+        [Given(@"\[User data is read]")]
+        public void GivenUserDataIsRead(Table table)
+        {
+            UserModel UserModel = table.CreateInstance<UserModel>();
+            _scenarioContext.Add("UserModel", UserModel);
+        }
+
+        [Given(@"\[Valid token obtained]")]
+        public void GivenValidTokenObtained()
+        {
+            HttpClient httpClient = _scenarioContext.Get<HttpClient>("System.Net.Http.HttpClient");
+            UserModel userModel = _scenarioContext.Get<UserModel>("UserModel");
+            //rewrite the user services to be static and take http client and user as args
+            TokenModel BearerToken = new UserServices(httpClient).SetNewUserAsync(userModel).Result;
+            httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", BearerToken.token);
+            _scenarioContext.Set<HttpClient>(httpClient);
+        }
+
+
+
+
+        
 
         [BeforeScenario(Order = 1)]
         public void FirstBeforeScenario()

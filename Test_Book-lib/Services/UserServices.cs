@@ -43,7 +43,7 @@ namespace Book_lib.Services
             return JsonSerializer.Deserialize<TokenModel>(Contents);
         }
 
-        public async Task<TokenModel> StartNewUserTestsAsync(UserModel user)
+        public async Task<TokenModel> SetNewUserAsync(UserModel user)
         {
             {
                 await DeleteUserAsync(new UserDeleteModel(user.EmailAddress));

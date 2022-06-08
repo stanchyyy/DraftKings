@@ -9,28 +9,22 @@ namespace Book_lib.Services
 {
     public class UserServices
     {
-        private UserModel User { get; set; }
-        private UserDeleteModel UserDelete { get; set; }
-        private UserLoginModel UserLogin { get; set; }
         public HttpClient HttpClient { get; set; }
-
         public UserServices(HttpClient httpClient) => HttpClient = httpClient;
 
 
-        private async Task AddUserAsync(UserModel userModel)
+        public async Task AddUserAsync(UserModel user)
         {
             {
-                User = userModel;
-                string JsonUserString = JsonSerializer.Serialize(userModel);
+                string JsonUserString = JsonSerializer.Serialize(user);
                 var response = await Task.Run(()=> HttpClient.PostAsync(HttpClient.BaseAddress+"Authentication/create-user", new StringContent(JsonUserString, Encoding.UTF8, "application/json")));
                 response.EnsureSuccessStatusCode();
             }
         }
         //Found in documentation that delete with body is not a well developed API - not restful.
-        private async Task DeleteUserAsync(UserDeleteModel userDeleteModel)
+        public async Task DeleteUserAsync(UserDeleteModel user)
         {
-            UserDelete = userDeleteModel;
-            string JsonUserDeleteString = JsonSerializer.Serialize(UserDelete);
+            string JsonUserDeleteString = JsonSerializer.Serialize(user);
             HttpRequestMessage HttpMessage = new (HttpMethod.Delete, HttpClient.BaseAddress + "Authentication/delete-user")
             {
                Content = new StringContent(JsonUserDeleteString, Encoding.UTF8, "application/json")
@@ -39,30 +33,22 @@ namespace Book_lib.Services
             response.EnsureSuccessStatusCode();
         }
 
-    
-
-        private async Task<string> LoginUserAsync(UserLoginModel userLogin)
+        public async Task<TokenModel> LoginUserAsync(UserLoginModel user)
         {
-            UserLogin = userLogin;
-            string JsonUserString = JsonSerializer.Serialize(UserLogin);
+            string JsonUserString = JsonSerializer.Serialize(user);
             StringContent LoginContent = new StringContent(JsonUserString, Encoding.UTF8, "application/json");
             HttpResponseMessage Response = await Task.Run(() => HttpClient.PostAsync(HttpClient.BaseAddress + "Authentication/login",LoginContent));
             Response.EnsureSuccessStatusCode();
             string Contents = await Response.Content.ReadAsStringAsync();
-            TokenModel ApiToken = JsonSerializer.Deserialize<TokenModel>(Contents);
-            return ApiToken.token;
+            return JsonSerializer.Deserialize<TokenModel>(Contents);
         }
 
-        public async Task<string> StartNewUserTestsAsync(UserModel user)
+        public async Task<TokenModel> StartNewUserTestsAsync(UserModel user)
         {
             {
-                UserDeleteModel DeleteModel = new(user.EmailAddress);
-                await this.DeleteUserAsync(DeleteModel);
-                User = user;
-                await this.AddUserAsync(User);
-                UserLoginModel LoginModel = new(User.EmailAddress,user.Password);
-                string Token = await this.LoginUserAsync(LoginModel);
-                return Token;
+                await DeleteUserAsync(new UserDeleteModel(user.EmailAddress));
+                await AddUserAsync(user);
+                return await LoginUserAsync(new UserLoginModel(user.EmailAddress,user.Password));
             }
         }
 

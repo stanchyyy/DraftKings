@@ -100,11 +100,14 @@ this.ScenarioInitialize(scenarioInfo);
                             "specflowTest",
                             "spec@spec.flow",
                             "specflowTest"});
-#line 5
- testRunner.Given("User is logged in", ((string)(null)), table1, "Given ");
+#line 6
+ testRunner.Given("[User data is read]", ((string)(null)), table1, "Given ");
 #line hidden
-#line 8
- testRunner.And("HTTP client is initialized", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+ testRunner.And("[HTTP client is initialized]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 11
+ testRunner.And("[Valid token obtained]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                             "title",
@@ -134,13 +137,13 @@ this.ScenarioInitialize(scenarioInfo);
                             "2004-06-07T14:15:22.630Z",
                             "unknown",
                             "2018-05-01T00:00:00.000Z"});
-#line 9
- testRunner.And("the given books are not present in the library", ((string)(null)), table2, "And ");
+#line 12
+ testRunner.And("the books are not present in the library", ((string)(null)), table2, "And ");
 #line hidden
-#line 15
+#line 18
  testRunner.When("[I login]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 16
+#line 19
  testRunner.Then("[I get authorization token]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
