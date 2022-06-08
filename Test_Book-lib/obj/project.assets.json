@@ -1675,16 +1675,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
-      },
-      "Book-lib/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/Book-lib.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Book-lib.dll": {}
-        }
       }
     }
   },
@@ -6165,16 +6155,10 @@
         "system.xml.xdocument.4.0.11.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
-    },
-    "Book-lib/1.0.0": {
-      "type": "project",
-      "path": "../Book-lib/Book-lib.csproj",
-      "msbuildProject": "../Book-lib/Book-lib.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Book-lib >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 17.2.0",
       "NUnit3TestAdapter >= 4.2.1",
       "SpecFlow.NUnit >= 3.9.74",
@@ -6212,11 +6196,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "C:\\Users\\Stani\\Documents\\DraftKings\\Book-lib\\Book-lib.csproj": {
-              "projectPath": "C:\\Users\\Stani\\Documents\\DraftKings\\Book-lib\\Book-lib.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

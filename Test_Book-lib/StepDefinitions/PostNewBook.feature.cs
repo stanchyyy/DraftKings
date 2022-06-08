@@ -20,8 +20,8 @@ namespace Test_Book_lib.StepDefinitions
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Add new book to library with title, author details, publisher and publish date.")]
-    public partial class AddNewBookToLibraryWithTitleAuthorDetailsPublisherAndPublishDate_Feature
+    [NUnit.Framework.DescriptionAttribute("Add new book to library")]
+    public partial class AddNewBookToLibraryFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -35,7 +35,7 @@ namespace Test_Book_lib.StepDefinitions
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "StepDefinitions", "Add new book to library with title, author details, publisher and publish date.", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "StepDefinitions", "Add new book to library", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,14 +74,14 @@ namespace Test_Book_lib.StepDefinitions
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("[Post new book not present in the library]")]
-        [NUnit.Framework.CategoryAttribute("tag1")]
-        public void PostNewBookNotPresentInTheLibrary()
+        [NUnit.Framework.DescriptionAttribute("Post new book")]
+        [NUnit.Framework.CategoryAttribute("TodoApp")]
+        public void PostNewBook()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag1"};
+                    "TodoApp"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[Post new book not present in the library]", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post new book", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -92,13 +92,55 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "UserName",
+                            "EmailAddress",
+                            "Password"});
+                table1.AddRow(new string[] {
+                            "specflowTest",
+                            "spec@spec.flow",
+                            "specflowTest"});
 #line 5
- testRunner.Given("[Book not present in the library]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("User is logged in", ((string)(null)), table1, "Given ");
 #line hidden
-#line 6
+#line 8
+ testRunner.And("HTTP client is initialized", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "title",
+                            "author.lastName",
+                            "author.firstName",
+                            "author.dateOfBirth",
+                            "publisher",
+                            "releaseDate"});
+                table2.AddRow(new string[] {
+                            "Harry Potter - Philosopher\'s Stone",
+                            "Joanne",
+                            "Rowling",
+                            "2002-06-07T14:15:22.630Z",
+                            "Bloomsbury Publishing",
+                            "2007-07-21T00:00:00.000Z"});
+                table2.AddRow(new string[] {
+                            "Test Driven Development: By Example",
+                            "Kent",
+                            "Beck",
+                            "2003-06-07T14:15:22.630Z",
+                            "Addison-Wesley Professional",
+                            "2002-10-01T00:00:00.000Z"});
+                table2.AddRow(new string[] {
+                            "CSharp-Principles-Book-Nakov-v2018",
+                            "Svetlin",
+                            "Nakov",
+                            "2004-06-07T14:15:22.630Z",
+                            "unknown",
+                            "2018-05-01T00:00:00.000Z"});
+#line 9
+ testRunner.And("the given books are not present in the library", ((string)(null)), table2, "And ");
+#line hidden
+#line 15
  testRunner.When("[I login]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 7
+#line 16
  testRunner.Then("[I get authorization token]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

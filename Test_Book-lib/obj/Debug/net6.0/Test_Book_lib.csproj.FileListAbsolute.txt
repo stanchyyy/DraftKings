@@ -110,5 +110,3 @@ C:\Users\Stani\Documents\DraftKings\Test_Book-lib\obj\Debug\net6.0\refint\Test_B
 C:\Users\Stani\Documents\DraftKings\Test_Book-lib\obj\Debug\net6.0\Test_Book_lib.pdb
 C:\Users\Stani\Documents\DraftKings\Test_Book-lib\obj\Debug\net6.0\Test_Book_lib.genruntimeconfig.cache
 C:\Users\Stani\Documents\DraftKings\Test_Book-lib\obj\Debug\net6.0\ref\Test_Book_lib.dll
-C:\Users\Stani\Documents\DraftKings\Test_Book-lib\bin\Debug\net6.0\Book-lib.dll
-C:\Users\Stani\Documents\DraftKings\Test_Book-lib\bin\Debug\net6.0\Book-lib.pdb

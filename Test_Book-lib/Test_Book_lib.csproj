@@ -20,8 +20,4 @@
     <Folder Include="Support\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Book-lib\Book-lib.csproj" />
-  </ItemGroup>
-
 </Project>

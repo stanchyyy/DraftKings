@@ -9,7 +9,7 @@ namespace Test_Book_lib.StepDefinitions
     [Binding]
     public class PostNewBookStepDefinitions
     {
-        private HttpClient? ClientApi;
+        public HttpClient HttpClient { get; set; }
 
         private string? UserName;
 
@@ -17,23 +17,38 @@ namespace Test_Book_lib.StepDefinitions
 
         private string? EmailAddress;
 
-        private string? ApiToken;
+        private UserModel? UserModel;
 
-        [Given(@"\[Book not present in the library]")]
-        public async void GivenBookNotPresentInTheLibrary()
+        private TokenModel? BearerToken;
+
+        [Given(@"User is signed in")]
+        public void GivenUserIsSignedIn(Table table)
         {
             UserName = Environment.GetEnvironmentVariable("bookLibUsername", EnvironmentVariableTarget.User);
             Password = Environment.GetEnvironmentVariable("bookLibPassword", EnvironmentVariableTarget.User);
             EmailAddress = Environment.GetEnvironmentVariable("bookLibEmailAddress", EnvironmentVariableTarget.User);
-            UserModel user = new UserModel(UserName, Password, EmailAddress);
+            UserModel = new(UserName, Password, EmailAddress);
+        }
 
-            ClientApi = new HttpClient();
-            ClientApi.BaseAddress = new Uri("http://localhost:5000/");
-            UserServices userServices = new UserServices(ClientApi);
-            ApiToken = await userServices.StartNewUserTestsAsync(user);
-            List<BookModel> BookList = new();
-            BookList =  BookServices.CreateBooksFromTemplate();
-            Console.WriteLine();
+
+
+        public void GivenHTTPClientInitialized()
+        {
+            //consider having a services for the HTTP?
+            HttpClient = new HttpClient();
+            HttpClient.BaseAddress = new Uri("http://localhost:5000/");
+        }
+
+
+
+        public async void GivenBookNotPresentInTheLibrary()
+        {
+           
+            //BearerToken = await new UserServices(HttpClient).StartNewUserTestsAsync();
+            HttpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", BearerToken.token);
+            BookServices BookServices = new BookServices(HttpClient);
+            BookServices.AddBookService(BookServices.GetBooksFromTemplateService());
+
         }
 
         [When(@"\[I login]")]

@@ -8,7 +8,6 @@
     ".NETCoreApp,Version=v6.0": {
       "Test_Book_lib/1.0.0": {
         "dependencies": {
-          "Book-lib": "1.0.0",
           "Microsoft.NET.Test.Sdk": "17.2.0",
           "NUnit3TestAdapter": "4.2.1",
           "SpecFlow.NUnit": "3.9.74",
@@ -1091,11 +1090,6 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.0.11"
         }
-      },
-      "Book-lib/1.0.0": {
-        "runtime": {
-          "Book-lib.dll": {}
-        }
       }
     }
   },
@@ -1748,11 +1742,6 @@
       "sha512": "sha512-Mk2mKmPi0nWaoiYeotq1dgeNK1fqWh61+EK+w4Wu8SWuTYLzpUnschb59bJtGywaPq7SmTuPf44wrXRwbIrukg==",
       "path": "system.xml.xdocument/4.0.11",
       "hashPath": "system.xml.xdocument.4.0.11.nupkg.sha512"
-    },
-    "Book-lib/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     }
   }
 }
