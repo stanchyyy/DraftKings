@@ -20,20 +20,6 @@ namespace Book_lib.Services
         {
             HttpClient = httpClient;
         }
-        private static string JsonTemplateFileName
-        {
-            get{ return Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..", "Templates", "newBookTemplate.json")); }
-        }
-
-        public List<BookModel> GetBooksFromTemplateService()
-        {
-            List<BookModel> TemplateBooks = new();
-            using (var reader = File.OpenText(JsonTemplateFileName))
-            {
-                string readText = reader.ReadToEnd();
-                return TemplateBooks = JsonSerializer.Deserialize<List<BookModel>>(readText);
-            }
-        }
 
 
         public async void AddBookService(List<BookModel> bookModels)
@@ -44,6 +30,24 @@ namespace Book_lib.Services
                     var response = await Task.Run(() => HttpClient.PostAsync(HttpClient.BaseAddress + "Books", new StringContent(JsonBookString, Encoding.UTF8, "application/json")));
                     response.EnsureSuccessStatusCode();
                 }
+        }
+
+        public async void DeleteBookService(IEnumerable<BookModel> bookModels)
+        {
+            foreach (BookModel book in bookModels)
+            {
+                string JsonBookString = JsonSerializer.Serialize(book);
+                var response = await Task.Run(() => HttpClient.PostAsync(HttpClient.BaseAddress + "Books", new StringContent(JsonBookString, Encoding.UTF8, "application/json")));
+                response.EnsureSuccessStatusCode();
+            }
+        }
+        public async Task<IEnumerable<BookModel>> GetBooksService()
+        {
+            var response = await Task.Run(() => HttpClient.GetAsync(HttpClient.BaseAddress + "Books"));
+            response.EnsureSuccessStatusCode();
+            string Contents = await response.Content.ReadAsStringAsync();
+
+            return IEnumerable<JsonSerializer.Deserialize<BookModel>(Contents)>> ;
         }
     }
 }

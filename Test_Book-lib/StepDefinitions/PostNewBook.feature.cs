@@ -106,14 +106,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 10
  testRunner.And("[HTTP client is initialized]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 11
+#line 12
  testRunner.And("[Valid token obtained]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                             "title",
-                            "author.lastName",
-                            "author.firstName",
-                            "author.dateOfBirth",
+                            "authorLastName",
+                            "authorFirstName",
+                            "authorDateOfBirth",
                             "publisher",
                             "releaseDate"});
                 table2.AddRow(new string[] {
@@ -137,13 +137,13 @@ this.ScenarioInitialize(scenarioInfo);
                             "2004-06-07T14:15:22.630Z",
                             "unknown",
                             "2018-05-01T00:00:00.000Z"});
-#line 12
- testRunner.And("the books are not present in the library", ((string)(null)), table2, "And ");
+#line 14
+ testRunner.And("[the books are not present in the library]", ((string)(null)), table2, "And ");
 #line hidden
-#line 18
+#line 20
  testRunner.When("[I login]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 19
+#line 21
  testRunner.Then("[I get authorization token]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

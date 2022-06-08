@@ -3,15 +3,15 @@ using System.Text.Json.Serialization;
 
 namespace Book_lib.Models
 {
-    public class BookAuthorModel
+    public class AuthorModel
     {
         [JsonPropertyName("firstName")]
-        public string FirstName { get; set; }
+        public string authorLastName { get; set; }
 
         [JsonPropertyName("lastName")]
-        public string LastName { get; set; }
+        public string authorFirstName { get; set; }
 
         [JsonPropertyName("dateOfBirth")]
-        public DateTime DateOfBirth { get; set; }
+        public DateTime authorDateOfBirth { get; set; }
     }
 }
