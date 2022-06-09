@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Test_Book_lib.Models
 {
-    internal class PageinfoModel
+    public class PageinfoModel
     {
         [JsonPropertyName("pageInfo")]
         public string PageInfo { get; set; }

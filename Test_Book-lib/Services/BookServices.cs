@@ -1,12 +1,9 @@
 ﻿using Book_lib.Models;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
+
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
+
+using Test_Book_lib.Models;
 
 namespace Book_lib.Services
 {
@@ -41,13 +38,29 @@ namespace Book_lib.Services
                 response.EnsureSuccessStatusCode();
             }
         }
-        public async Task<IEnumerable<BookModel>> GetBooksService()
+        public async Task<List<BooksResponseModel>>GetBooksService()
         {
-            var response = await Task.Run(() => HttpClient.GetAsync(HttpClient.BaseAddress + "Books"));
-            response.EnsureSuccessStatusCode();
-            string Contents = await response.Content.ReadAsStringAsync();
 
-            return IEnumerable<JsonSerializer.Deserialize<BookModel>(Contents)>> ;
+            List<BooksResponseModel> AllBooks = new List<BooksResponseModel>();
+            int pageIndex = 1;
+            BooksResponseModel BooksOnPage = new();
+            do
+            {
+                UriBuilder uri = new(HttpClient.BaseAddress+ "Books");
+                string queryToAppend = "PageNumber="+pageIndex.ToString();
+                uri.Query = queryToAppend;
+
+                HttpResponseMessage response = await Task.Run(() => HttpClient.GetAsync(uri.ToString()));
+                response.EnsureSuccessStatusCode();
+                string PageContents = await response.Content.ReadAsStringAsync();
+                BooksOnPage = JsonSerializer.Deserialize<BooksResponseModel>(PageContents);
+                AllBooks.Add(BooksOnPage);
+                pageIndex++;
+                
+            } while (BooksOnPage.Books.Count > 0);
+            
+
+            return AllBooks;
         }
     }
 }

@@ -5,6 +5,10 @@ namespace Book_lib.Models
 {
     public class AuthorModel
     {
+
+        [JsonPropertyName("id")]
+        public int Id { get; set; }
+
         [JsonPropertyName("firstName")]
         public string authorLastName { get; set; }
 

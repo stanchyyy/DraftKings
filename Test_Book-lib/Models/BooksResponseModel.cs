@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Test_Book_lib.Models
 {
-    internal class BooksResponseModel
+    public class BooksResponseModel
     {
         [JsonPropertyName("books")]
-        public BookModel Books { get; set; }
+        public List<BookModel> Books { get; set; }
 
         [JsonPropertyName("pageInfo")]
-        public PageinfoModel PageInfo { get; set; }
+        public string PageInfo { get; set; }
         
     }
 }

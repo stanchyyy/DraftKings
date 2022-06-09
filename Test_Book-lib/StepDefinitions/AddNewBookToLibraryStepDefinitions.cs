@@ -9,6 +9,15 @@ namespace Test_Book_lib.StepDefinitions
     [Binding]
     public class AddNewBookToLibraryStepDefinitions
     {
+        private readonly ScenarioContext _scenarioContext;
+
+        public AddNewBookToLibraryStepDefinitions(ScenarioContext scenarioContext)
+        {
+            _scenarioContext = scenarioContext;
+        }
+
+
+
         [Given(@"\[the books are not present in the library]")]
         public void GivenTheBooksAreNotPresentInTheLibrary(Table table)
         {
@@ -22,7 +31,8 @@ namespace Test_Book_lib.StepDefinitions
                     book.Author = author;
                 }
             }
-
+            BookServices bookServices = new(_scenarioContext.Get<HttpClient>("System.Net.Http.HttpClient"));
+            var result = bookServices.GetBooksService().Result;
         }
     }
 }

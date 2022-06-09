@@ -5,6 +5,9 @@ namespace Book_lib.Models
 {
     public class BookModel
     {
+        [JsonPropertyName("id")]
+        public int Id { get; set; }
+
         [JsonPropertyName("title")]
         public string Title { get; set; }
 
