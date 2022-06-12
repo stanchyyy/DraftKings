@@ -3,18 +3,21 @@ using Book_lib.Services;
 using System;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using Test_Book_lib.Drivers;
 
 namespace Test_Book_lib.StepDefinitions
 {
     [Binding]
-    public class AddNewBookToLibraryStepDefinitions
+    public class AddNewBook
     {
+
         private readonly ScenarioContext _scenarioContext;
 
-        public AddNewBookToLibraryStepDefinitions(ScenarioContext scenarioContext)
+        public AddNewBook(ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext;
         }
+
 
 
 

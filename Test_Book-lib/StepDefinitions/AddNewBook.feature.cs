@@ -28,7 +28,7 @@ namespace Test_Book_lib.StepDefinitions
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "PostNewBook.feature"
+#line 1 "AddNewBook.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
@@ -75,14 +75,14 @@ namespace Test_Book_lib.StepDefinitions
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Post new book")]
-        [NUnit.Framework.CategoryAttribute("TodoApp")]
+        [NUnit.Framework.CategoryAttribute("PostNewBook")]
         public void PostNewBook()
         {
             string[] tagsOfScenario = new string[] {
-                    "TodoApp"};
+                    "PostNewBook"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post new book", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 4
+#line 14
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -93,57 +93,40 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                            "UserName",
-                            "EmailAddress",
-                            "Password"});
-                table1.AddRow(new string[] {
-                            "specflowTest",
-                            "spec@spec.flow",
-                            "specflowTest"});
-#line 6
- testRunner.Given("[User data is read]", ((string)(null)), table1, "Given ");
-#line hidden
-#line 10
- testRunner.And("[HTTP client is initialized]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 12
- testRunner.And("[Valid token obtained]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                             "title",
                             "authorLastName",
                             "authorFirstName",
                             "authorDateOfBirth",
                             "publisher",
                             "releaseDate"});
-                table2.AddRow(new string[] {
+                table1.AddRow(new string[] {
                             "Harry Potter - Philosopher\'s Stone",
                             "Joanne",
                             "Rowling",
                             "2002-06-07T14:15:22.630Z",
                             "Bloomsbury Publishing",
                             "2007-07-21T00:00:00.000Z"});
-                table2.AddRow(new string[] {
+                table1.AddRow(new string[] {
                             "Test Driven Development: By Example",
                             "Kent",
                             "Beck",
                             "2003-06-07T14:15:22.630Z",
                             "Addison-Wesley Professional",
                             "2002-10-01T00:00:00.000Z"});
-                table2.AddRow(new string[] {
+                table1.AddRow(new string[] {
                             "CSharp-Principles-Book-Nakov-v2018",
                             "Svetlin",
                             "Nakov",
                             "2004-06-07T14:15:22.630Z",
                             "unknown",
                             "2018-05-01T00:00:00.000Z"});
-#line 14
- testRunner.And("[the books are not present in the library]", ((string)(null)), table2, "And ");
+#line 16
+ testRunner.Given("[the books are not present in the library]", ((string)(null)), table1, "Given ");
 #line hidden
-#line 20
+#line 22
  testRunner.When("[I login]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 21
+#line 23
  testRunner.Then("[I get authorization token]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
